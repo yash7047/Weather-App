@@ -7,7 +7,8 @@ const app=express()
 
 // APIKEY and URL
 var api_key="appid=19cd8741e7e9b54c6de7fb031a80eb27";
-var url="https://api.openweathermap.org/data/2.5/weather?q=";
+var url1="https://api.openweathermap.org/data/2.5/weather?q=";
+var url2="https://api.openweathermap.org/data/2.5/onecall?";  //lat=33.441792&lon=-94.037689&"
 
 //Setting up port
 const port=process.env.PORT || 3000
@@ -26,28 +27,32 @@ app.get('/',(req,res)=>{
     res.render('index')
 })
 
-//about section
-app.get('/about',(req,res)=>{
-    res.render('about')
-})
-
 //Weather Fetching Section
 app.get('/weather',(req,res)=>{
-
-    city=req.body.city;
-    country=req.body.country;
-    city=city+','+country;
-    url=url+city+'&'+api_key;                           //London,uk&APPID=
+    var city=req.query.city;
+    var url=url1+city+api_key;
     request(url,function(error,response,body){
         if(!error && response.statusCode===200){
-            res.render("results",{data: data});
+            var data=JSON.parse(body);
+            var lat=data["coord"]["lat"];
+            var lon=data["coord"]["lon"];
+            var main_url=url2+"lat="+String(lat)+"&lon="+String(lon)+api_key;
+            //console.log(main_url);
+            request(main_url,function(error,response,body){
+                if(!error && response.statusCode===200){
+                    var result=JSON.parse(body);
+                    res.render("results",{data: result});
+                }else{
+                    console.log(error);
+                    console.log(response.statusCode);
+                }
+            });
         } else{
-            data=JSON.parse(body);
+            console.log(error);
             console.log(response.statusCode);
         }
     });
 })
-
 
 app.listen(port,()=>{
     console.log('Server is up')
