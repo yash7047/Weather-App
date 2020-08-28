@@ -1,0 +1,174 @@
+html{
+    height: 100%;
+}
+body{
+    margin:0px;
+    padding: 0px;
+}
+
+.container{
+    position: relative;
+}
+
+#img{
+    background-repeat: no-repeat;
+    background-position: center; 
+    width: 100%;
+    height: 625px;
+}
+
+.form{
+    position: absolute;
+    left: 500px;
+    right:auto;
+    top: 200px;
+    z-index: 10;
+}
+
+.container{
+   bottom: 100px;
+   
+}
+
+p{
+    border: none;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+#head{
+    position: absolute;
+    left: 410px;
+    top: 130px;
+    font-size: 50px;
+    font-family:Arial, Helvetica, sans-serif;
+    color:white;
+    z-index: 10;
+}
+
+.container{
+    position: absolute;
+    left: 100px;
+    top: 300px;
+}
+
+.row{
+    column-gap: 30px;
+}
+/* responsive-style */
+
+@media screen and (max-width:1200px){
+    #head{
+        left: 390px;
+    }
+    .form{
+        left: 480px;
+    }
+}
+
+@media screen and (max-width:1136px){
+    #head{
+        left: 350px;
+    }
+    .form{
+        left: 430px;
+    }
+}
+
+@media screen and (max-width:1070px){
+    #head{
+        left: 300px;
+    }
+    .form{
+        left: 380px;
+    }
+}
+
+@media screen and (max-width:964px){
+    #head{
+        left: 250px;
+    }
+    .form{
+        left: 330px;
+    }
+}
+
+@media screen and (max-width:900px){
+    #head{
+        left: 200px;
+    }
+    .form{
+        left: 280px;
+    }
+}
+@media screen and (max-width:800px){
+    #head{
+        left: 150px;
+    }
+    .form{
+        left: 230px;
+    }
+}
+
+@media screen and (max-width:724px){
+    #head{
+        left: 100px;
+    }
+    .form{
+        left: 200px;
+    }
+}
+@media screen and (max-width:640px){
+    #head{
+        left: 70px;
+    }
+    .form{
+        left: 170px;
+    }
+}
+
+@media screen and (max-width:576px){
+    #head{
+       left: 40px;
+    }
+    .form{
+        left: 120px;
+    }
+}
+@media screen and (max-width:556px){
+    #head{
+        font-size: 40px;
+        top: 140px;
+    }
+    .form{
+        left: 40px;
+    }
+}
+@media screen and (max-width:456px){
+    #head{
+        font-size: 30px;
+        top: 150px;
+    }
+    .form{
+        left: 40px;
+    }
+}
+@media screen and (max-width:354px){
+    #head{
+        font-size: 30px;
+        top: 150px;
+    }
+    .form{
+        left: 40px;
+    }
+}
+@media screen and (max-width:340px){
+    #head{
+        font-size: 30px;
+        top: 130px;
+    }
+    .form{
+        left: 40px;
+    }
+}
