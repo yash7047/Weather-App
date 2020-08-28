@@ -37,8 +37,6 @@ app.get('/',(req,res)=>{
 
 //Weather Fetching Section
 app.get('/weather',(req,res)=>{
-    
-=======
     var url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=19cd8741e7e9b54c6de7fb031a80eb27`;
     request(url,function(error,response,body){
         if(!error && response.statusCode===200){
