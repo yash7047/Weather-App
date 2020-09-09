@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="/js/script.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
 </head>
 <body>
-    
       <div class="contain" id="cont">
         <img src="/image/2.jpg" alt="background_image" id="img" class="img-fluid">
         <div>
@@ -21,26 +20,42 @@
                 <form class="form row g-3" id="myform" method="POST" action="/">
                     <div class="col-auto">
                       <!-- <label for="inputPassword2" class="sr-only">Password</label> -->
-                      <input type="ciyt_name" class="form-control" name="city" placeholder="Enter City Name">
+                      <input type="text" class="form-control" name="city_name" placeholder="Enter City Name">
                     </div>
                     <div class="col-auto">
                       <button type="submit" class="btn btn-primary mb-3">Search</button>
                     </div>
-                  </form>
+                </form>
               </div>
           </div>
           <div class="container">
-            <div class="row">
-              <div class="col-sm" style="background-color:#aaa;">
-                <%=qs.city%>
+              <div class="row">
+                  <div class="col-sm" style="background-color:#aaa;">
+                    <%=qs.city%>
+                  </div>
+                  <div class="col-sm" style="background-color:#bbb;">
+                    <%=qs.temp%>
+                  </div>
+                  <div class="col-sm" style="background-color:#ccc;">
+                    <%=qs.desc%>
+                  </div>
+
+                <!--   for next 3 days weather condition will be as follows:   -->
+
+                  <h3>Weather conditon of <%= qs.city %> for next 3 days:</h3>
+                  <div>
+                      Temperature is <%= qs.next[1].min_temp %>^C
+                      <br>Description: <%= qs.next[1].desc %>
+                  </div>
+                  <div>
+                      Temperature is <%= qs.next[2].min_temp %>^C
+                      <br>Description: <%= qs.next[2].desc %>
+                  </div>
+                  <div>
+                      Temperature is <%= qs.next[3].min_temp %>^C
+                      <br>Description: <%= qs.next[3].desc %>
+                  </div>
               </div>
-              <div class="col-sm" style="background-color:#bbb;">
-                <%=qs.city%>
-              </div>
-              <div class="col-sm" style="background-color:#ccc;">
-                <%=qs.city%>
-              </div>
-            </div>
           </div>
       </div>
     
