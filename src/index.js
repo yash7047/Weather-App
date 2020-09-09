@@ -6,9 +6,10 @@ var request=require('request')
 var bodyParser=require('body-parser')
 
 const app=express()
-//Settuping up port
+//Setting up port
 app.use(bodyParser.urlencoded({extended: true}));
 
+//Default city, lat and lon
 var city='kanpur', lat=26.47, lon=80.35;
 
 //Setting up port
@@ -30,13 +31,6 @@ app.use(express.static(public_path))
 
 //Homepage
 app.get('/',(req,res)=>{
-    res.render('index',{qs:req.query})
-})
-
-
-
-//Weather Fetching Section
-app.get('/weather',(req,res)=>{
     var url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=19cd8741e7e9b54c6de7fb031a80eb27`;
     request(url,function(error,response,body){
         if(!error && response.statusCode===200){
@@ -59,7 +53,7 @@ app.get('/weather',(req,res)=>{
                             {min_temp: result.daily[3].temp.min, max_temp: result.daily[3].temp.max,desc: result.daily[3].weather[0].description, icon: result.daily[3].weather[0].icon}
                         ]
                     }
-                    res.render("index",{data: weather_data});
+                    res.render("index",{qs: weather_data});
                 }else{
                     console.log(error);
                     console.log(response.statusCode);
