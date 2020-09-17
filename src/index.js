@@ -30,7 +30,7 @@ app.use(express.static(public_path))
 //<------------ROUTERS------------->
 
 //Homepage
-app.get('/',(req,res)=>{
+app.get("/",function(req,res){
     var url=`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=19cd8741e7e9b54c6de7fb031a80eb27`;
     request(url,function(error,response,body){
         if(!error && response.statusCode===200){
@@ -50,7 +50,9 @@ app.get('/',(req,res)=>{
                             {min_temp: result.daily[0].temp.min, max_temp: result.daily[0].temp.max,desc: result.daily[0].weather[0].description, icon: result.daily[0].weather[0].icon},
                             {min_temp: result.daily[1].temp.min, max_temp: result.daily[1].temp.max,desc: result.daily[1].weather[0].description, icon: result.daily[1].weather[0].icon},
                             {min_temp: result.daily[2].temp.min, max_temp: result.daily[2].temp.max,desc: result.daily[2].weather[0].description, icon: result.daily[2].weather[0].icon},
-                            {min_temp: result.daily[3].temp.min, max_temp: result.daily[3].temp.max,desc: result.daily[3].weather[0].description, icon: result.daily[3].weather[0].icon}
+                            {min_temp: result.daily[3].temp.min, max_temp: result.daily[3].temp.max,desc: result.daily[3].weather[0].description, icon: result.daily[3].weather[0].icon},
+                            {min_temp: result.daily[4].temp.min, max_temp: result.daily[4].temp.max,desc: result.daily[4].weather[0].description, icon: result.daily[4].weather[0].icon},
+                            {min_temp: result.daily[5].temp.min, max_temp: result.daily[5].temp.max,desc: result.daily[5].weather[0].description, icon: result.daily[5].weather[0].icon}
                         ]
                     }
                     res.render("index",{qs: weather_data});
@@ -64,7 +66,7 @@ app.get('/',(req,res)=>{
             console.log(response.statusCode);
         }
     });
-})
+});
 
 app.post("/",function(req,res){
     city=req.body.city_name;
