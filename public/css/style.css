@@ -1,49 +1,44 @@
-html{
+html {
     height: 100%;
 }
-body{
+
+body {
+    color: white;
     margin: 0;
     padding: 0;
-    background-image: url("https://images.unsplash.com/photo-1428592953211-077101b2021b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-image: url("https://images.unsplash.com/photo-1523821741446-edb2b68bb7a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80");
     background-position: center;
     background-size: cover;
+    background-repeat: repeat;
+    transition: all 0.2s ease;
 }
-h1{
+
+h1 {
     margin: 60px auto;
     text-align: center;
     font-size: 50px;
-    font-family: Bahnschrift;
 }
-h2{
+
+h2 {
     margin: 20px auto;
     text-align: center;
-    font-family: Georgia;
-}
-.result, .result1{
-    margin: 50px auto;
 }
 .part {
-    border: 2px solid steelblue;
+    background-color: rgba(0, 90, 255, 0.2);
     text-align: center;
     border-radius: 5px;
     padding: 10px 20px;
-    font-family: "Comic Sans MS";
 }
-.part:hover{
-    background: cornflowerblue;
+
+.part:hover {
+    background: rgba(0, 90, 255, 0.4);
     color: floralwhite;
 }
-.part .row{
-    justify-content: center;
+
+#know {
+    color: white;
 }
-.desc{
-    padding-top: 5px;
-    font-size: 20px;
-    color: blue;
-}
-#know{
-    margin: 10px auto;
-}
-.result{
+
+.result {
     display: none;
 }
